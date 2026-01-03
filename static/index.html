@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Thermo Processes</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <main>
+      <h1>Thermo Processes Calculator</h1>
+      <form id="calc-form">
+        <div id="form-errors" aria-live="polite" class="form-errors"></div>
+        <div class="row">
+          <label for="process_type">Process</label>
+          <select id="process_type" name="process_type" class="hidden-select"></select>
+          <div id="process-cards" class="cards" aria-label="Process choices"></div>
+        </div>
+        <div class="row">
+          <label for="substance">Substance</label>
+          <select id="substance" name="substance" class="hidden-select"></select>
+          <div id="substance-cards" class="cards" aria-label="Substance choices"></div>
+        </div>
+
+        <fieldset>
+          <legend>Required inputs</legend>
+          <label>P1 (kPa)<input id="P1" name="P1" type="number" step="any" required></label>
+          <label>V1 (m³)<input id="V1" name="V1" type="number" step="any" required></label>
+          <label>T1 (K)<input id="T1" name="T1" type="number" step="any" required></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Optional inputs</legend>
+          <label>V2 (m³)<input id="V2" name="V2" type="number" step="any"></label>
+          <label>T2 (K)<input id="T2" name="T2" type="number" step="any"></label>
+          <label>n (polytropic)<input id="n" name="n" type="number" step="any"></label>
+        </fieldset>
+
+        <div class="row">
+          <label for="mass">Mass (kg)</label>
+          <input id="mass" name="mass" type="number" step="any" value="1.0">
+        </div>
+
+        <div class="row">
+          <button type="submit">Calculate</button>
+        </div>
+      </form>
+
+      <section id="output">
+        <h2>Results</h2>
+        <div id="results-container">
+          <div class="results-grid" id="results-grid">
+            <!-- Results will be inserted here by JavaScript -->
+          </div>
+        </div>
+        <div class="plots">
+          <div class="plot">
+            <h3>P-V Diagram</h3>
+            <div id="pv-plot" class="plotly-plot" aria-label="P-V plot"></div>
+            <a id="pv-download" class="download" href="#">Download P-V</a>
+          </div>
+          <div class="plot">
+            <h3>T-S Diagram</h3>
+            <div id="ts-plot" class="plotly-plot" aria-label="T-S plot"></div>
+            <a id="ts-download" class="download" href="#">Download T-S</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Plotly from CDN -->
+    <script src="https://cdn.plot.ly/plotly-2.24.2.min.js"></script>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
