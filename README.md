@@ -29,4 +29,6 @@ python api.py
 }
 ```
 
-The response JSON includes the numerical results and two fields `pv_plot` and `ts_plot` that contain data URLs (PNG) you can open in a browser or embed in an HTML <img> tag.
+Alternatively, run the `start_windows.bat` or `start_gitbash.sh` to lauch start helper.
+
+The response JSON includes the numerical results and two fields `pv_plot` and `ts_plot` that contain data URLs (PNG)
